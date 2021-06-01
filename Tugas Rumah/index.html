@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta class="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <title>Pembuatan KTP</title>
+</head>
+<body>
+    <div class="container" id="app" style="padding-top: 20px;">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h3 class="card-header">Pembuatan KTP</h3>
+                    <div class="card-body">
+                        <showform @send-data="getData"></showform>
+                        <showdata :data="ktp"></showdata>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="show-form">
+        <form>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" class="form-control" v-model="data.nama">
+            </div>
+            <div class="form-group">
+                <label>Tempat/Tanggal Lahir</label>
+                <input type="text" class="form-control" v-model="data.ttl">
+            </div>
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <input type="text" class="form-control" v-model="data.kelamin">
+            </div>
+            <div class="form-group">
+                <label>Alamat</label>
+                <input type="text" class="form-control" v-model="data.alamat">
+            </div>
+            <div class="form-group">
+                <label>Agama</label>
+                <input type="text" class="form-control" v-model="data.agama">
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text" class="form-control" v-model="data.status">
+            </div>
+            <div class="form-group">
+                <label>Pekerjaan</label>
+                <input type="text" class="form-control" v-model="data.job">
+            </div>
+            <div class="form-group">
+                <label>Kewarganegaraan</label>
+                <input type="text" class="form-control" v-model="data.negara">
+            </div>
+            <button type="button" class="btn btn-primary" @click="simpan">Simpan</button>
+        </form>
+    </template>
+
+    <template id="show-data">
+        <table class="table table-bordered" style="margin-top: 20px;">
+            <thead>
+                <tr>
+                    <td>Nama Lengkap</td>
+                    <td v-if="data.nama == null">-</td>
+                    <td v-else> {{data.nama}} </td>
+                </tr>
+                <tr>
+                    <td>Tempat/Tanggal Lahir</td>
+                    <td v-if="data.ttl == null">-</td>
+                    <td v-else> {{data.ttl}} </td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td v-if="data.kelamin == null">-</td>
+                    <td v-else> {{data.kelamin}} </td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td v-if="data.alamat == null">-</td>
+                    <td v-else> {{data.alamat}} </td>
+                </tr>
+                <tr>
+                    <td>Agama</td>
+                    <td v-if="data.agama == null">-</td>
+                    <td v-else> {{data.agama}} </td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td v-if="data.status == null">-</td>
+                    <td v-else> {{data.status}} </td>
+                </tr>
+                <tr>
+                    <td>Pekerjaan</td>
+                    <td v-if="data.job == null">-</td>
+                    <td v-else> {{data.job}} </td>
+                </tr>
+                <tr>
+                    <td>Kewarganegaraan</td>
+                    <td v-if="data.negara == null">-</td>
+                    <td v-else> {{data.negara}} </td>
+                </tr>
+            </thead>
+        </table>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
